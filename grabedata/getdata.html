@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>here</title>
+<script>
+// 替换YOUR_API_KEY_HERE为你的API密钥
+const apiKey = 'c0ed877744748a76608cef26';
+const url = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
+
+async function fetchExchangeRates() {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const rates = data.conversion_rates;
+        document.getElementById('usd-to-gbp').textContent = `1 USD = ${rates.GBP} GBP`;
+        document.getElementById('usd-to-ars').textContent = `1 USD = ${rates.ARS} ARS`;
+        document.getElementById('usd-to-aud').textContent = `1 USD = ${rates.AUD} AUD`;
+    } catch (error) {
+        console.error('Error fetching data: ', error);
+        document.getElementById('usd-to-gbp').textContent = 'Data not available';
+        document.getElementById('usd-to-ars').textContent = 'Data not available';
+        document.getElementById('usd-to-aud').textContent = 'Data not available';
+    }
+}
+
+// 页面加载完成时获取汇率信息
+window.onload = function() {
+    fetchExchangeRates();
+};
+</script>
+</head>
+<body>
+<h1>start from here!</h1>
+<p id="usd-to-gbp">Loading...</p>
+<p id="usd-to-ars">Loading...</p>
+<p id="usd-to-aud">Loading...</p>
+</body>
+</html>

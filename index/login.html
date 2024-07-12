@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 300px;
+            padding: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #b9627c;
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+        }
+        .register-button {
+            background-color: #b9627c;
+            margin-top: 10px; /* 添加间隔 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>login now!</h2>
+        <form id="loginForm">
+            <label for="username">username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">login</button>
+        </form>
+        <button class="register-button" onclick="window.location.href='register.html'">register</button>
+        <p id="message"></p>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
